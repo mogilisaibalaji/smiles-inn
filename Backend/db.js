@@ -2,44 +2,44 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.ObjectId;
 
+// ✅ Updated MongoDB connection string
 mongoose.connect("mongodb+srv://saibalajimogili_db_user:admin123@cluster123.5cb5zgu.mongodb.net/Smiles_inn")
-    .then(() => console.log("MongoDB connected"))
-    .catch(err => console.error("MongoDB connection error:", err));
+  .then(() => console.log("✅ MongoDB connected successfully"))
+  .catch(err => console.error("❌ MongoDB connection error:", err));
 
-
-
+// ✅ Define Schemas
 const students = new Schema({
-    name : String,
-    age : Number,
-    phone : Number,
-    address : String,
-    city : String,
-    dept : String
+  name: String,
+  age: Number,
+  phone: Number,
+  address: String,
+  city: String,
+  dept: String
 });
 
 const rooms = new Schema({
-    roomNo : Number,
-    floor : Number,
-    type : String,
-    ac : Boolean
+  roomNo: Number,
+  floor: Number,
+  type: String,
+  ac: Boolean
 });
 
 const bookings = new Schema({
-    bookingId : ObjectId,
-    phone : Number,
-    room : Number,
-    date : Date,
-    amount : Number
-
-    
+  bookingId: ObjectId,
+  phone: Number,
+  room: Number,
+  date: Date,
+  amount: Number
 });
 
-const studentsModel = mongoose.model("students",students);
-const roomsModel = mongoose.model("rooms",rooms);
-const bookingsModel = mongoose.model("bookings",bookings);
+// ✅ Create Models
+const studentsModel = mongoose.model("students", students);
+const roomsModel = mongoose.model("rooms", rooms);
+const bookingsModel = mongoose.model("bookings", bookings);
 
-module.exports={
-    studentsModel,
-    roomsModel,
-    bookingsModel
+// ✅ Export Models
+module.exports = {
+  studentsModel,
+  roomsModel,
+  bookingsModel
 };
