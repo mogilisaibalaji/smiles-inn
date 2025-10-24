@@ -1,15 +1,10 @@
 const { Router }  = require("express");
 const studentsRouter =  Router();
-const { studentsModel } = require("../db");
+const { studentsModel} = require("../db");
  
 studentsRouter.post("/add" , async function (req,res){
-    const name  = req.body.name;
-    const age = req.body.age;
-    const phone = req.body.phone;
-    const location = req.body.location;
-    const city = req.body.city;
-    const dept = req.body.dept;
-
+    const {name , age ,phone , address , city , dept } = req.body
+    
      const newStudent = new studentsModel({
       name,
       age,
@@ -25,6 +20,11 @@ studentsRouter.post("/add" , async function (req,res){
      
 });
 
+studentsRouter.get("/get" ,(req,res)=>{
+    const {}
+
+});
+
 studentsRouter.put("/update" ,(req,res)=>{
 
 });
@@ -33,8 +33,6 @@ studentsRouter.delete("/delete" , (req,res)=>{
 
 });
 
-studentsRouter.get("/get" ,(req,res)=>{
 
-});
 
 module.exports = studentsRouter;

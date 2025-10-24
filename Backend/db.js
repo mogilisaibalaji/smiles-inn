@@ -10,7 +10,7 @@ const students = new Schema({
     name : String,
     age : Number,
     phone : Number,
-    location : String,
+    address : String,
     city : String,
     dept : String
 });
