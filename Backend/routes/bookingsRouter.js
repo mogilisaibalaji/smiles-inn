@@ -2,10 +2,10 @@ const { Router }= require("express");
 const bookingsRouter = Router();
 
 bookingsRouter.post("/bookings" , (req,res)=>{
-
+    
 });
 
-bookingsRouter.get("bookings",(req,res)=>{
+bookingsRouter.get("/bookings",(req,res)=>{
 
 });
 

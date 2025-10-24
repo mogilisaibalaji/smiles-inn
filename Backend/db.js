@@ -7,17 +7,15 @@ mongoose.connect("mongodb+srv://saibalajimogili_db_user:admin123@cluster123.5cb5
 
 
 const students = new Schema({
-    _id : ObjectId,
     name : String,
     age : Number,
     phone : Number,
-    address : String,
+    location : String,
     city : String,
-    Dept : String
+    dept : String
 });
 
 const rooms = new Schema({
-    _id : ObjectId,
     roomNo : Number,
     floor : Number,
     type : String,
@@ -25,7 +23,6 @@ const rooms = new Schema({
 });
 
 const bookings = new Schema({
-    _id : ObjectId,
     bookingId : ObjectId,
     phone : Number,
     room : Number,
