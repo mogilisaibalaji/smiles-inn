@@ -87,7 +87,6 @@ studentsRouter.delete("/delete/:id" , async (req,res)=>{
       student : deleteData
     })
   };
-
 });
 
 
