@@ -48,8 +48,6 @@ studentsRouter.put("/update/:id", async (req, res) => {
   const {id} = req.params;
   const {name , age ,phone , address , city , dept } = req.body;
 
-  
-
   const updateData = await studentsModel.findByIdAndUpdate(
     id,
     {name , age,phone,address,city,dept},
@@ -73,7 +71,6 @@ studentsRouter.put("/update/:id", async (req, res) => {
 studentsRouter.delete("/delete/:id" , async (req,res)=>{
 
   const {id} = req.params;
- 
 
   const deleteData = await studentsModel.findByIdAndDelete(id);
   if (!deleteData){
@@ -83,8 +80,7 @@ studentsRouter.delete("/delete/:id" , async (req,res)=>{
   }
   else{
     return res.json({
-      message : "The student data is deleted",
-      student : deleteData
+      message : "The student data is deleted"
     })
   };
 });
