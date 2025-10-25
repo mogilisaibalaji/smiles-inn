@@ -43,11 +43,51 @@ studentsRouter.get("/get" , async function(req,res){
     
 });
 
-studentsRouter.put("/update" ,(req,res)=>{
+studentsRouter.put("/update/:id", async (req, res) => {
+  const {id} = req.params;
+  const {name , age ,phone , address , city , dept } = req.body;
 
+  
+
+  const updateData = await studentsModel.findByIdAndUpdate(
+    id,
+    {name , age,phone,address,city,dept},
+    {new : true}
+  );
+
+  if(!updateData){
+    return res.status(500).json({message : " no update request"});
+  }
+  else{
+   return res.json({
+    message : "The data is upadated",
+    student : updateData
+    });
+
+  }
 });
 
-studentsRouter.delete("/delete" , (req,res)=>{
+
+
+studentsRouter.delete("/delete/:id" , async (req,res)=>{
+
+  const {id} = req.params;
+ 
+
+  const deleteData = await studentsModel.findByIdAndDelete(id);
+  if (!deleteData){
+    return res.status(404).json({
+      message : "no Data is deleted "
+    })
+  }
+  else{
+    return res.json({
+      message : "The student data is deleted",
+      student : deleteData
+    })
+  };
+
+
 
 });
 
