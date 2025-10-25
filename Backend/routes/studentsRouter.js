@@ -22,7 +22,7 @@ studentsRouter.post("/add" , async function (req,res){
 
 studentsRouter.get("/get" , async function(req,res){
     try {
-    const { name } = req.query;
+    const { name} = req.query;
     let students ;
 
     if (name){

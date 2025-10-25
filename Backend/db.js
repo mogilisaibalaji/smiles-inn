@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.ObjectId;
 
-// ✅ Updated MongoDB connection string
-mongoose.connect("mongodb+srv://saibalajimogili_db_user:admin123@cluster123.5cb5zgu.mongodb.net/Smiles_inn")
-  .then(() => console.log("✅ MongoDB connected successfully"))
-  .catch(err => console.error("❌ MongoDB connection error:", err));
 
-// ✅ Define Schemas
+mongoose.connect("mongodb+srv://saibalajimogili_db_user:admin123@cluster123.5cb5zgu.mongodb.net/Smiles_inn")
+  .then(() => console.log(" MongoDB connected successfully"))
+  .catch(err => console.error(" MongoDB connection error:", err));
+
+
 const students = new Schema({
   name: String,
   age: Number,
@@ -21,7 +21,7 @@ const rooms = new Schema({
   roomNo: Number,
   floor: Number,
   type: String,
-  ac: Boolean
+  price : Number
 });
 
 const bookings = new Schema({
@@ -32,12 +32,12 @@ const bookings = new Schema({
   amount: Number
 });
 
-// ✅ Create Models
+
 const studentsModel = mongoose.model("students", students);
 const roomsModel = mongoose.model("rooms", rooms);
 const bookingsModel = mongoose.model("bookings", bookings);
 
-// ✅ Export Models
+
 module.exports = {
   studentsModel,
   roomsModel,
