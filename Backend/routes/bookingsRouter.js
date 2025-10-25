@@ -24,7 +24,7 @@ bookingsRouter.post("/add" ,async (req,res)=>{
 
 bookingsRouter.get("/get",async (req,res)=>{
     try{
-        const {bookingId ,phone, room} = req.query;
+        const {bookingId,studentId ,phone, room} = req.query;
         let bookings;
 
         if (bookingId){
