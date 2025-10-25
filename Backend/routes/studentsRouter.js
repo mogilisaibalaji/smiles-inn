@@ -43,6 +43,7 @@ studentsRouter.get("/get" , async function(req,res){
     
 });
 
+
 studentsRouter.put("/update/:id", async (req, res) => {
   const {id} = req.params;
   const {name , age ,phone , address , city , dept } = req.body;
@@ -87,9 +88,8 @@ studentsRouter.delete("/delete/:id" , async (req,res)=>{
     })
   };
 
-
-
 });
+
 
 
 
