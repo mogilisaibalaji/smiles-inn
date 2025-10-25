@@ -28,7 +28,7 @@ const bookings = new Schema({
   bookingId: ObjectId,
   phone: Number,
   room: Number,
-  date: Date,
+  date: {type : Date , default : Date.now},
   amount: Number
 });
 

@@ -21,9 +21,9 @@ roomsRouter.post("/add", async (req,res)=>{
 });
 roomsRouter.get("/get",async (req,res)=>{
     try{
-    const { roomNo , floor } = req.query;
+        const { roomNo , floor } = req.query;
 
-    let rooms;
+        let rooms;
 
     if (roomNo){
         const rooms = await roomsModel.find({ roomNo: Number(roomNo) });
@@ -51,47 +51,48 @@ roomsRouter.get("/get",async (req,res)=>{
 
 roomsRouter.put("/update/:id" ,async (req,res)=>{
     try{
-    const {id} = req.params;
-    const {roomNo ,floor, type, price} = req.body;
+        const {id} = req.params;
+        const {roomNo ,floor, type, price} = req.body;
 
-    const roomsData = await roomsModel.findByIdAndUpdate(
-        id,
-        { roomNo,floor,type,price },
-        {new : true}
-    );
-    
-    res.json({
-        message : " Room updated successfully ",
-        roomsData : roomsData
-    });
-} catch(err){
-    res.status(500).json({
-        error : " Error updating room "
-    });
-}
+        const roomsData = await roomsModel.findByIdAndUpdate(
+            id,
+            { roomNo,floor,type,price },
+            {new : true}
+        );
+        
+        res.json({
+            message : " Room updated successfully ",
+            roomsData : roomsData
+        });
+    } 
+    catch(err){
+        res.status(500).json({
+            error : " Error updating room "
+        });
+    }
 
 });
 
 roomsRouter.delete("/delete/:id" , async (req,res)=>{
     try{
-    const {id} = req.params;
-    const deleteRooms = await roomsModel.findByIdAndDelete(id);
-    if (!deleteRooms){
-        return res.status(404).json({
-            message : " No room found to delete "
-        });
-    } 
-    else{
-        return res.json({
-            message : " Room deleted successfully "
-        });
+        const {id} = req.params;
+        const deleteRooms = await roomsModel.findByIdAndDelete(id);
+        if (!deleteRooms){
+            return res.status(404).json({
+                message : " No room found to delete "
+            });
+        } 
+        else{
+            return res.json({
+                message : " Room deleted successfully "
+            });
+        }
+    }    
+    catch(err){
+        res.status(500).json({
+            error : " Error deleting room "
+        }); 
     }
-} catch(err){
-    res.status(500).json({
-        error : " Error deleting room "
-    }); 
-}
-
 });
 
 

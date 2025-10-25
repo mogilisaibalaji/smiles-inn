@@ -1,4 +1,5 @@
 const { Router }= require("express");
+const { bookingsModel } = require("../db")
 const bookingsRouter = Router();
 
 bookingsRouter.post("/add" ,async (req,res)=>{
@@ -24,20 +25,20 @@ bookingsRouter.get("/get",async (req,res)=>{
         let bookings;
 
         if (bookingId){
-         const    reservations = await bookingsModel.find({ bookingId: bookingId });
+         const   bookings = await bookingsModel.find({ bookingId: bookingId });
             return res.json(bookings);
         }
         if (phone){
-          const   reservations = await bookingsModel.find({phone : Number(phone)});
+          const   bookings = await bookingsModel.find({phone : Number(phone)});
             return res.json(bookings);
         }
         if (room){
-            const   reservations = await bookingsModel.find({ room: Number(room)});
+            const   bookings = await bookingsModel.find({ room: Number(room)});
             return res.json(bookings);
         }
 
         else{
-            const  reservations = await bookingsModel.find();
+            const  bookings = await bookingsModel.find();
             return res.json(bookings);
         };
     
@@ -89,7 +90,5 @@ bookingsRouter.delete("/delete/:id" , async (req,res)=>{
 }   
 });
 
-module.exports={
-    bookingsRouter : bookingsRouter
-};
+module.exports= bookingsRouter
 
