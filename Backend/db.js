@@ -12,7 +12,6 @@ const students = new Schema({
   name: String,
   age: Number,
   phone: Number,
-  address: String,
   city: String,
   dept: String
 });
@@ -25,7 +24,9 @@ const rooms = new Schema({
 });
 
 const bookings = new Schema({
-  bookingId: ObjectId,
+  studentId : { type: Schema.Types.ObjectId, ref: 'students' },
+  roomId : { type: Schema.Types.ObjectId, ref: 'rooms' },
+  name : String,
   phone: Number,
   room: Number,
   date: {type : Date , default : Date.now},

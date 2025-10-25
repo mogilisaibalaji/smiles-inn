@@ -3,13 +3,12 @@ const studentsRouter =  Router();
 const { studentsModel} = require("../db");
  
 studentsRouter.post("/add" , async function (req,res){
-    const {name , age ,phone , address , city , dept } = req.body
+    const {name , age ,phone  , city , dept } = req.body
     
      const newStudent = new studentsModel({
       name,
       age,
       phone,
-      address,
       city,
       dept,
     });
@@ -46,11 +45,11 @@ studentsRouter.get("/get" , async function(req,res){
 
 studentsRouter.put("/update/:id", async (req, res) => {
   const {id} = req.params;
-  const {name , age ,phone , address , city , dept } = req.body;
+  const {name , age ,phone , city , dept } = req.body;
 
   const updateData = await studentsModel.findByIdAndUpdate(
     id,
-    {name , age,phone,address,city,dept},
+    {name , age,phone,city,dept},
     {new : true}
   );
 

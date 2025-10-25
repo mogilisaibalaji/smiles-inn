@@ -3,10 +3,13 @@ const { bookingsModel } = require("../db")
 const bookingsRouter = Router();
 
 bookingsRouter.post("/add" ,async (req,res)=>{
-    const {bookingId , phone , room , date , amount} = req.body;
+    const {bookingId ,studentId,roomId,name, phone , room , date , amount} = req.body;
 
     const newBooking = new bookingsModel({
         bookingId,
+        studentId,
+        roomId,
+        name,
         phone,
         room,
         date,
@@ -26,6 +29,10 @@ bookingsRouter.get("/get",async (req,res)=>{
 
         if (bookingId){
          const   bookings = await bookingsModel.find({ bookingId: bookingId });
+            return res.json(bookings);
+        }
+         if (studentId){
+         const   bookings = await bookingsModel.find({ studentId :studentId});
             return res.json(bookings);
         }
         if (phone){
