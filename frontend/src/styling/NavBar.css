@@ -1,0 +1,145 @@
+/* =======================
+   NAVBAR CONTAINER
+   ======================= */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 60px;
+  z-index: 1000;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  font-family: "Poppins", sans-serif;
+}
+
+/* =======================
+   LOGO
+   ======================= */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* =======================
+   NAV LINKS
+   ======================= */
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 25px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li span,
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+nav ul li:hover > span,
+nav ul li:hover > a {
+  color: #ffdd00;
+  transform: scale(1.05);
+}
+
+/* =======================
+   DROPDOWN MENU
+   ======================= */
+nav ul li ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #34495e;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+nav ul li:hover > ul,
+nav ul li ul:hover {
+  display: flex;
+}
+
+nav ul li ul li {
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+nav ul li ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav ul li ul li:hover {
+  background-color: #3b556d;
+}
+
+nav ul li ul li:hover a {
+  color: #ffdd00;
+}
+
+/* =======================
+   RIGHT SIDE ALIGNMENT
+   ======================= */
+nav ul li:last-child {
+  margin-right: 20px; /* keeps About visible */
+}
+
+/* =======================
+   ANIMATION (SMOOTH APPEAR)
+   ======================= */
+nav ul li ul {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+nav ul li:hover > ul {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =======================
+   RESPONSIVE (OPTIONAL)
+   ======================= */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 25px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  nav ul li ul {
+    position: static;
+    box-shadow: none;
+  }
+}

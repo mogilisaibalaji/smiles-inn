@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Students from "../pages/Students";
+import "../styling/NavBar.css";
 
 export default function NavBar(){
     const [studentOpen , setStudentOpen] = useState(false);

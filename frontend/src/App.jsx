@@ -4,7 +4,6 @@ import {Routes,Route } from "react-router-dom";
  import Rooms from "./pages/Rooms.jsx";
  import Bookings from "./pages/Bookings.jsx";
  import NavBar from "./components/NavBar.jsx";
-  // import About from "./pages/About.jsx";
 
 
 
@@ -20,7 +19,7 @@ export default function App() {
             {/* <Route path ="/About" element =  {<About/>} /> */}
           </Routes> 
 
-          <button>My button</button>
+          
 
       </div>
     </>
