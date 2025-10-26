@@ -1,7 +1,7 @@
 import React from "react";
 
-export default function Home(){
-    return (
-        <h2>welcome to home page </h2>
+export default function Rooms(){
+    return(
+        <h2>Add rooms</h2>
     )
 }
