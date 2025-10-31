@@ -1,12 +1,13 @@
 const express = require("express");
 
 const { studentsModel , roomsModel , bookingsModel } = require("./db")
-
+const cors = require("cors")
 const studentsRouter =  require("./routes/studentsRouter");
 const roomsRouter = require("./routes/roomsRouter");
 const bookingsRouter = require("./routes/bookingsRouter");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 
