@@ -1,0 +1,65 @@
+/* General container styling */
+.add-students-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form card */
+.form-card {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+/* Title */
+.form-card h2 {
+  color: #1565c0;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Input fields */
+.form-card input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.form-card input:focus {
+  outline: none;
+  border-color: #1565c0;
+  box-shadow: 0 0 4px rgba(21, 101, 192, 0.3);
+}
+
+/* Submit button */
+.form-card button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1565c0;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-card button:hover {
+  background-color: #0d47a1;
+}
+
+.form-card button:disabled {
+  background-color: #90caf9;
+  cursor: not-allowed;
+}

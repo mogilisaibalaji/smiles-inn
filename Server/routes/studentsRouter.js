@@ -21,15 +21,10 @@ studentsRouter.post("/add" , async function (req,res){
 
 studentsRouter.get("/get" , async function(req,res){
     try {
-    const { name} = req.query;
+   
     let students ;
 
-    if (name){
-        students = await studentsModel.find({ name })
-    }
-    else{
-        students = await studentsModel.find();
-    }
+      students = await studentsModel.find();
 
     res.json(students);
 }
@@ -41,6 +36,25 @@ studentsRouter.get("/get" , async function(req,res){
     }
     
 });
+studentsRouter.get("/get/:name", async (req, res) => {
+  try {
+    const { name } = req.params;
+
+    const students = await studentsModel.find({
+      name: { $regex: name, $options: "i" },
+    });
+
+    if (students.length === 0) {
+      return res.status(404).json({ message: "No students found with that name" });
+    }
+
+    res.status(200).json(students);  
+  } catch (error) {
+    console.error("Error fetching students:", error);
+    res.status(500).json({ message: "Server error", error });
+  }
+});
+
 
 
 studentsRouter.put("/update/:id", async (req, res) => {

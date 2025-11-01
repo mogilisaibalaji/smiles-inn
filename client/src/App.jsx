@@ -1,9 +1,9 @@
 import {Routes,Route, BrowserRouter, Link} from "react-router-dom";
-import Students from "./pages/students";
 import NavBar from "./components/NavBar";
 import Rooms from "./pages/rooms";
 import Bookings from "./pages/bookings"
 import Home from "./pages/Home"
+import {AddStudents,ViewStudents } from "./pages/students";
 
 
 export default function App(){
@@ -20,9 +20,9 @@ export default function App(){
 
         {/* students route */}
 
-        <Route path="/addStudents" element={<Students />} />
-        {/* <Route path="viewStudents" element={<ViewStudents />} />
-        <Route path="updateStudents" element={<UpdateStudents />} />
+        <Route path="/addStudents" element={<AddStudents />} />
+        <Route path="/viewStudents" element={<ViewStudents />} />
+        {/* <Route path="updateStudents" element={<UpdateStudents />} />
         <Route path="deleteStudents" element={<DeleteStudents />} /> */}
         
           {/* rooms route  */}
