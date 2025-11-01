@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "./rooms.css";
 
 export default function AddRooms() {
   const [roomNo, setRoomNo] = useState("");
