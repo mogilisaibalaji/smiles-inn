@@ -1,9 +1,9 @@
-import {Routes,Route, BrowserRouter, Link} from "react-router-dom";
+import {Routes,Route, BrowserRouter} from "react-router-dom";
 import NavBar from "./components/NavBar";
-import Rooms from "./pages/rooms";
-import Bookings from "./pages/bookings"
+// import Bookings from "./pages/bookings"
 import Home from "./pages/Home"
 import {AddStudents,ViewStudents } from "./pages/students";
+import  AddRooms  from "./pages/rooms";
 
 
 export default function App(){
@@ -27,14 +27,14 @@ export default function App(){
         
           {/* rooms route  */}
 
-        <Route path="/addRooms" element={<Rooms />} />
-        {/* <Route path="/viewrooms" element={<Rooms />} />
-        <Route path="/updaterooms" element={<Rooms />} />
-        <Route path="/deleteRooms" element={<Rooms />} /> */}
+        <Route path="/addRooms" element={<AddRooms />} />
+        {/* <Route path="/viewrooms" element={<Rooms />} /> */}
+        {/* <Route path="/updaterooms" element={<Rooms />} /> */}
+        {/* <Route path="/deleteRooms" element={<Rooms />} /> */}
 
           {/* bookings route */}
 
-        <Route path="/addBookings" element={<Bookings />}/>
+        {/* <Route path="/addBookings" element={<Bookings />}/> */}
         {/* <Route path="/viewBookings" element={<Bookings />}/>
         <Route path="/updateBookings" element={<Bookings />}/>
         <Route path="/deleteookings" element={<Bookings />}/> */}
